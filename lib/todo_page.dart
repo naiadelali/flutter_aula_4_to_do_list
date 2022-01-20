@@ -4,6 +4,7 @@ import 'components/task_input_widget.dart';
 
 import 'components/list_task_widget.dart';
 import 'models/task_model.dart';
+import 'todo_controller.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({Key? key}) : super(key: key);
@@ -13,16 +14,7 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
-  TextEditingController textController = TextEditingController();
-  var todoList = <TaskModel>[];
-
-  void addToDo() {
-    if (textController.text.isNotEmpty) {
-      var newTask = TaskModel(desc: textController.text);
-      todoList.add(newTask);
-      textController.text = '';
-    }
-  }
+  var controller = TodoController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,20 +35,20 @@ class _TodoPageState extends State<TodoPage> {
           Padding(
               padding: const EdgeInsets.fromLTRB(17, 24, 17, 40),
               child: TaskInputWidget(
-                textController: textController,
-                onPressed: () => setState(() => addToDo()),
+                textController: controller.textController,
+                onPressed: () => setState(() => controller.addToDo()),
                 buttonText: 'ADD',
                 labelText: 'Nova tarefa',
               )),
           Expanded(
             child: ListTaskWidget(
-              itemCount: todoList.length,
-              todoList: todoList,
+              itemCount: controller.todoList.length,
+              todoList: controller.todoList,
               onChanged: (value, index) => setState(() {
-                todoList[index].completed = value ?? false;
+                controller.onUpdateStatusTask(value, index);
               }),
               onDimissed: (direction, index) => setState(() {
-                todoList.removeAt(index);
+                controller.onRemoveTask(index);
               }),
             ),
           ),
