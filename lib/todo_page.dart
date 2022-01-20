@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/task_input_widget.dart';
-
 import 'components/list_task_widget.dart';
-import 'models/task_model.dart';
 import 'todo_controller.dart';
 
 class TodoPage extends StatefulWidget {
