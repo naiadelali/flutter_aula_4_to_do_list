@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Aula 4 - Lista de Tarefas',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Poppins',
         primarySwatch: Colors.blue,
         iconTheme: IconThemeData(color: Color(0xFFC1007E)),
         listTileTheme: ListTileThemeData(iconColor: Color(0xFFC1007E)),
