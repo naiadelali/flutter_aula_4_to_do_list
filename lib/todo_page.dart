@@ -45,7 +45,7 @@ class _TodoPageState extends State<TodoPage> {
               onChanged: (value, index) => setState(() {
                 controller.onUpdateStatusTask(value, index);
               }),
-              onDimissed: (direction, index) => setState(() {
+              onDimissed: (index) => setState(() {
                 controller.onRemoveTask(index);
               }),
             ),

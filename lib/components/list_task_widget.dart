@@ -6,7 +6,7 @@ class ListTaskWidget extends StatelessWidget {
   final int itemCount;
   final List todoList;
   final Function(bool?, int index) onChanged;
-  final Function(DismissDirection?, int index) onDimissed;
+  final Function(int index) onDimissed;
   const ListTaskWidget(
       {Key? key,
       required this.itemCount,
@@ -25,7 +25,7 @@ class ListTaskWidget extends StatelessWidget {
             completed: task.completed,
             title: task.desc,
             onChanged: (value) => onChanged(value, index),
-            onDismissed: (direction) => onDimissed(direction, index),
+            onDismissed: (direction) => onDimissed(index),
           );
         });
   }
