@@ -1,7 +1,8 @@
+import '../../common/widgets/custom_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'components/task_input_widget.dart';
 import 'components/list_task_widget.dart';
+import 'components/task_input_widget.dart';
 import 'todo_controller.dart';
 
 class TodoPage extends StatefulWidget {
@@ -17,17 +18,7 @@ class _TodoPageState extends State<TodoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Image.asset('assets/images/logo_home.png'),
-            ),
-            Text('Lista de Tarefas'),
-          ],
-        ),
-      ),
+      appBar: CustomAppBarWidget(title: 'Lista de tarefas'),
       body: Column(
         children: [
           Padding(
